@@ -1,0 +1,6 @@
+<h1> <%= @serie.name.upcase %></h1>
+  <ul>
+    <% @serie.photos.each do |photo| %>
+      <img src="<%= photo.url %>" alt="<%= photo.alt %>">
+    <% end %>
+  </ul>

@@ -1,1 +1,35 @@
 // Specific CSS for your home-page
+h1 {
+  margin: 2%;
+}
+
+.home-page {
+  margin-top: 2%;
+  display: flex;
+}
+.left-box {
+  width: 25%;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 2px;
+}
+
+.summary {
+  flex-grow: 1;
+  }
+
+#logo-insta {
+  width: 3rem;
+}
+
+.right-box {
+  width: 75%;
+  text-align: center;
+}
+
+.home-page-images {
+  height: 100vh;
+}

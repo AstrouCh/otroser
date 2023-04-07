@@ -1,0 +1,8 @@
+<h1>Añadir una nueva serie</h1>
+
+<%= simple_form_for(@serie) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.submit %>
+<% end %>
+<%# <%= link_to "⬅ Volver a la lista de serias", series_path %>
