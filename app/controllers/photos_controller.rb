@@ -1,27 +1,25 @@
 class PhotosController < ApplicationController
-  # def index
-  #   @series = Serie.all
-  # end
+  def index
+    @series = Serie.all
+  end
 
-  # def new
-  #   @serie = Serie.new
-  # end
+  def new
+    @serie = Serie.new
+  end
 
   def create
     @photo = Photo.new(photo_params)
     @photo.serie = @serie
     if @photo.save
-      redirect_to serie_path(@serie)
+      redirect_to series_path(@serie)
     else
       render "series/show", status: :unprocessable_entity
-      # redirect_to restaurant_path(@restaurant)
     end
   end
 
-  # def show
-  #   @serie = Serie.find(params[:id])
-  #   @photo = Photo.new
-  # end
+  def show
+    @photo = Photo.find(params[:id])
+  end
 
   # def edit
   #   @serie = Serie.find(params[:id])
@@ -34,14 +32,17 @@ class PhotosController < ApplicationController
   #   redirect_to serie_path(@serie)
   # end
 
-  # def destroy
-  #   @serie = Serie.find(params[:id])
-  #   @serie.destroy
-  #   # No need for app/views/restaurants/destroy.html.erb
-  #   redirect_to series_path, status: :see_other
-  # end
+  def destroy
+    @photo = Photo.find(params[:id])
+    @photo.destroy
+    redirect_to series_photo_path, status: :see_other
+  end
 
   private
+
+  def set_serie
+    @serie = Serie.find(params[:serie_id])
+  end
 
   def photo_params
     params.require(:photo).permit(:url, :alt)

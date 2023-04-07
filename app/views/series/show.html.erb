@@ -1,6 +1,15 @@
 <h1> <%= @serie.name.upcase %></h1>
-  <ul>
+<h4> <%= @serie.description %> </h4>
+  <div class="show-image">
     <% @serie.photos.each do |photo| %>
       <img src="<%= photo.url %>" alt="<%= photo.alt %>">
+      <p><%= button_to "❎", series_photo_path(photo), method: :delete, id:"button" %></p>
     <% end %>
-  </ul>
+  </div>
+
+<h3>Add a new photo to <%= @serie.name %></h1>
+  <%= simple_form_for [@serie, @photo] do |f| %>
+    <%= f.input :url %>
+    <%= f.input :alt %>
+    <%= f.submit "Submit photo" %>
+  <% end %>

@@ -1,0 +1,9 @@
+<h1>Edit a serie</h1>
+
+<%= simple_form_for(@serie) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.button :submit, "Update serie" %>
+<% end %>
+
+<%= link_to "Back to serie", series_path(@serie) %>

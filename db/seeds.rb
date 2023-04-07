@@ -9,8 +9,8 @@ puts "Cleaning database..."
 Serie.destroy_all
 
 puts "Creating series..."
-normal = {name: "Normal", description: "What is normal?"}
-salvajesylibre = {name: "SALVAJES Y LIBRE", description: "grrr"}
+normal = { name: "Normal", description: "What is normal?" }
+salvajesylibre = { name: "SALVAJES Y LIBRE", description: "grrr" }
 
 [normal, salvajesylibre].each do |attributes|
   serie = Serie.create!(attributes)

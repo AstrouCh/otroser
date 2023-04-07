@@ -1,7 +1,7 @@
 <div class="home-page">
   <div class="left-box">
     <div class="summary">
-      <h1>Otroser</h1>
+      <h1 id="otroser-title">Otroser</h1>
       <ul>
         <% @series.each do |serie| %>
           <li>
@@ -31,3 +31,13 @@
   </div>
   <%= link_to "➕ añadir una nueva serie", new_series_path %>
 </div>
+
+<ul>
+  <% @series.each do |serie| %>
+    <li>
+      <%= link_to serie.name.upcase, series_path(serie) %>
+      <p><%= link_to("Edit this serie", edit_series_path(serie)) %></p>
+      <p><%= button_to "❎", series_path(serie), method: :delete, id:"button" %></p>
+    </li>
+  <% end %>
+</ul>

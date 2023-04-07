@@ -36,11 +36,14 @@ class SeriesController < ApplicationController
   def destroy
     @serie = Serie.find(params[:id])
     @serie.destroy
-    # No need for app/views/restaurants/destroy.html.erb
     redirect_to series_path, status: :see_other
   end
 
   private
+
+  def set_serie
+    @serie = Serie.find(params[:id])
+  end
 
   def serie_params
     params.require(:serie).permit(:name, :description)
