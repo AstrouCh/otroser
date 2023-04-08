@@ -1,15 +1,9 @@
+
+<H1 id="otroser-title"> <%= link_to "Otroser", root_path %> </H1>
 <h1> <%= @serie.name.upcase %></h1>
 <h4> <%= @serie.description %> </h4>
   <div class="show-image">
     <% @serie.photos.each do |photo| %>
-      <img src="<%= photo.url %>" alt="<%= photo.alt %>">
-      <p><%= button_to "❎", series_photo_path(photo), method: :delete, id:"button" %></p>
+      <img src="<%= cl_image_path(photo.key) + ".jpg"  %>" alt="" height: 300, width: 400, crop: :fill>
     <% end %>
   </div>
-
-<h3>Add a new photo to <%= @serie.name %></h1>
-  <%= simple_form_for [@serie, @photo] do |f| %>
-    <%= f.input :url %>
-    <%= f.input :alt %>
-    <%= f.submit "Submit photo" %>
-  <% end %>

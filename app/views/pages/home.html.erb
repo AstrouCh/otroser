@@ -18,8 +18,10 @@
   <div class="right-box">
     <img class="home-page-images" src="https://static.wixstatic.com/media/e859b4_4f4c9d6ec72a4d7a815980134d3fd22b~mv2.jpg/v1/fill/w_847,h_683,al_c,q_85,enc_auto/DSC_6446%20copia.jpg" alt="">
     <div class="seria">
-      <h1>NORMAL</h1>
-      <img class="home-page-images" src="https://static.wixstatic.com/media/e859b4_e021bd44d4cb40a796d4ca80975fd0a3~mv2.jpg/v1/fill/w_1611,h_1070,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/e859b4_e021bd44d4cb40a796d4ca80975fd0a3~mv2.jpg" alt="">
+      <% @series.each do |serie| %>
+        <h1> <%= link_to serie.name, serie_path(serie) %> </h1>
+        <%= @serie.photos[1]  %>
+        <% end %>
     </div>
   </div>
   <%= link_to "➕ añadir una nueva serie", new_serie_path %>
@@ -29,8 +31,10 @@
   <% @series.each do |serie| %>
     <li>
       <%= link_to serie.name, series_path(serie) %>
-      <p><%= link_to("Edit this serie", edit_serie_path(serie)) %></p>
-      <p><%= button_to "❎", serie_path(serie), method: :delete, id:"button" %></p>
+        <% if current_user %>
+        <p><%= link_to("Edit this serie", edit_serie_path(serie)) %></p>
+        <p><%= button_to "❎", serie_path(serie), method: :delete, id:"button" %></p>
+      <% end %>
     </li>
   <% end %>
 </ul>

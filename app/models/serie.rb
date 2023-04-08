@@ -1,3 +1,3 @@
 class Serie < ApplicationRecord
-  has_many :photos, dependent: :destroy
+  has_many_attached :photos
 end

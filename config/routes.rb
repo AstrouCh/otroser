@@ -15,8 +15,4 @@ Rails.application.routes.draw do
   patch  "series/:id",      to: "series#update"
   delete "series/:id",      to: "series#destroy"
 
-  resources :series do
-    resources :photos
-  end
-
 end

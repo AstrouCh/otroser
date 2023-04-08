@@ -11,7 +11,7 @@ class SeriesController < ApplicationController
     @serie = Serie.new(serie_params)
     @serie.save!
     if @serie.save
-      redirect_to root_path
+      redirect_to serie_path(@serie)
     else
       render :new, status: :unprocessable_entity
     end
@@ -19,7 +19,6 @@ class SeriesController < ApplicationController
 
   def show
     @serie = Serie.find(params[:id])
-    @photo = Photo.new
   end
 
   def edit
@@ -29,7 +28,7 @@ class SeriesController < ApplicationController
   def update
     @serie = Serie.find(params[:id])
     @serie.update(serie_params)
-    if @serie.save!
+    if @serie.save
       redirect_to root_path
     else
       render :edit, status: :unprocessable_entity
@@ -49,7 +48,7 @@ class SeriesController < ApplicationController
   end
 
   def serie_params
-    params.require(:serie).permit(:name, :description)
+    params.require(:serie).permit(:name, :description, photos: [])
   end
 
 end
