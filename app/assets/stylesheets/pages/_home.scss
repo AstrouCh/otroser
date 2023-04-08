@@ -20,6 +20,14 @@
 
 .summary {
   flex-grow: 1;
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  ul {
+    list-style-type: none;
+  }
   }
 
 #logo-insta {

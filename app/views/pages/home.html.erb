@@ -5,16 +5,9 @@
       <ul>
         <% @series.each do |serie| %>
           <li>
-            <%= link_to serie.name.upcase, series_path(serie) %>
+            <%= link_to serie.name, serie_path(serie) %>
           </li>
         <% end %>
-      </ul>
-
-
-      <ul>
-        <li>NORMAL</li>
-        <li>SALVAJES Y LIBRE</li>
-        <li>MIRANDO AL SUR (MAS)</li>
         <li>OTROSER</li>
         <li>ARTICULOS</li>
       </ul>
@@ -29,15 +22,15 @@
       <img class="home-page-images" src="https://static.wixstatic.com/media/e859b4_e021bd44d4cb40a796d4ca80975fd0a3~mv2.jpg/v1/fill/w_1611,h_1070,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/e859b4_e021bd44d4cb40a796d4ca80975fd0a3~mv2.jpg" alt="">
     </div>
   </div>
-  <%= link_to "➕ añadir una nueva serie", new_series_path %>
+  <%= link_to "➕ añadir una nueva serie", new_serie_path %>
 </div>
 
 <ul>
   <% @series.each do |serie| %>
     <li>
-      <%= link_to serie.name.upcase, series_path(serie) %>
-      <p><%= link_to("Edit this serie", edit_series_path(serie)) %></p>
-      <p><%= button_to "❎", series_path(serie), method: :delete, id:"button" %></p>
+      <%= link_to serie.name, series_path(serie) %>
+      <p><%= link_to("Edit this serie", edit_serie_path(serie)) %></p>
+      <p><%= button_to "❎", serie_path(serie), method: :delete, id:"button" %></p>
     </li>
   <% end %>
 </ul>

@@ -9,9 +9,9 @@ class SeriesController < ApplicationController
 
   def create
     @serie = Serie.new(serie_params)
-    @serie.save
+    @serie.save!
     if @serie.save
-      redirect_to series_path(@serie)
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,14 +29,17 @@ class SeriesController < ApplicationController
   def update
     @serie = Serie.find(params[:id])
     @serie.update(serie_params)
-    # No need for app/views/series/update.html.erb
-    redirect_to series_path(@serie)
+    if @serie.save!
+      redirect_to root_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
     @serie = Serie.find(params[:id])
     @serie.destroy
-    redirect_to series_path, status: :see_other
+    redirect_to serie_path, status: :see_other
   end
 
   private

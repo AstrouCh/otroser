@@ -1,17 +1,19 @@
 class PhotosController < ApplicationController
-  def index
-    @series = Serie.all
-  end
+  before_action :set_serie, only: %i[new create]
 
-  def new
-    @serie = Serie.new
-  end
+  # def index
+  #   @series = Serie.all
+  # end
+
+  # def new
+  #   @serie = Serie.new
+  # end
 
   def create
     @photo = Photo.new(photo_params)
     @photo.serie = @serie
     if @photo.save
-      redirect_to series_path(@serie)
+      redirect_to serie_path(@serie)
     else
       render "series/show", status: :unprocessable_entity
     end

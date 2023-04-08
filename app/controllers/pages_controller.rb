@@ -3,6 +3,8 @@ class PagesController < ApplicationController
 
   def home
     @series = Serie.all
+
+    @serie = Serie.new
   end
 
 end
