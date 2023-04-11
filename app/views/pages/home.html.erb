@@ -1,3 +1,4 @@
+
 <div class="home-page">
   <div class="left-box">
     <div class="summary">
@@ -12,21 +13,26 @@
         <li>ARTICULOS</li>
       </ul>
     </div>
-    <img id="logo-insta" src="https://tse1.mm.bing.net/th?id=OIP.wGOOyZdzF8Ia6mt79UWixAHaHa&pid=Api" alt="logo Instagram">
-    <p>Gustavo <br>5 rua Pitia, <br>75011 Paris <br>gustavo@gmail.com</p>
+    <div class="contact-infos">
+      <img id="logo-insta" src="https://tse1.mm.bing.net/th?id=OIP.wGOOyZdzF8Ia6mt79UWixAHaHa&pid=Api" alt="logo Instagram">
+      <p>Gustavo <br>5 rua Pitia, <br>75011 Paris <br>gustavo@gmail.com</p>
+    </div>
   </div>
   <div class="right-box">
     <img class="home-page-images" src="https://static.wixstatic.com/media/e859b4_4f4c9d6ec72a4d7a815980134d3fd22b~mv2.jpg/v1/fill/w_847,h_683,al_c,q_85,enc_auto/DSC_6446%20copia.jpg" alt="">
-    <div class="seria">
       <% @series.each do |serie| %>
         <h1> <%= link_to serie.name, serie_path(serie) %> </h1>
-        <%= @serie.photos[1]  %>
+              <% if serie.photos.attached? %>
+                <img src="<%= cl_image_path(serie.photos[0].key) + ".jpg"  %>" alt="", class="home-page-images">
+              <% else %>
+                <%= image_tag("https://tse2.mm.bing.net/th?id=OIP.uD9MRwwIK3xy2p_TYTYeegHaHa&pid=Api") %>
+              <% end %>
         <% end %>
-    </div>
+
   </div>
-  <%= link_to "➕ añadir una nueva serie", new_serie_path %>
 </div>
 
+  <%= link_to "➕ añadir una nueva serie", new_serie_path %>
 <ul>
   <% @series.each do |serie| %>
     <li>

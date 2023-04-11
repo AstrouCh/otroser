@@ -1,9 +1,8 @@
-
 <H1 id="otroser-title"> <%= link_to "Otroser", root_path %> </H1>
 <h1> <%= @serie.name.upcase %></h1>
 <h4> <%= @serie.description %> </h4>
   <div class="show-image">
     <% @serie.photos.each do |photo| %>
-      <img src="<%= cl_image_path(photo.key) + ".jpg"  %>" alt="" height: 300, width: 400, crop: :fill>
+      <img src="<%= cl_image_path(photo.key) + ".jpg"  %>" alt="" class="home-page-images">
     <% end %>
   </div>

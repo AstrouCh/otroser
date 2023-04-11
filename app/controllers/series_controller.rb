@@ -19,6 +19,13 @@ class SeriesController < ApplicationController
 
   def show
     @serie = Serie.find(params[:id])
+
+    # if @serie.photos.attached?
+    #   @photo_array = []
+    #   @serie.photos.each do |photo|
+    #     @photo_array << photo.key
+    #   end
+    # end
   end
 
   def edit
