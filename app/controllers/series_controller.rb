@@ -1,4 +1,6 @@
 class SeriesController < ApplicationController
+  before_action :set_serie, only: %i[show edit update destroy]
+
   def index
     @series = Serie.all
   end
@@ -18,32 +20,21 @@ class SeriesController < ApplicationController
   end
 
   def show
-    @serie = Serie.find(params[:id])
-
-    # if @serie.photos.attached?
-    #   @photo_array = []
-    #   @serie.photos.each do |photo|
-    #     @photo_array << photo.key
-    #   end
-    # end
   end
 
   def edit
-    @serie = Serie.find(params[:id])
   end
 
   def update
-    @serie = Serie.find(params[:id])
     @serie.update(serie_params)
     if @serie.save
-      redirect_to root_path
+      redirect_to serie_path(@serie)
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @serie = Serie.find(params[:id])
     @serie.destroy
     redirect_to serie_path, status: :see_other
   end

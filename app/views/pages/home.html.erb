@@ -6,41 +6,47 @@
       <ul>
         <% @series.each do |serie| %>
           <li>
-            <%= link_to serie.name, serie_path(serie) %>
+            <%= link_to serie.name.upcase, serie_path(serie) %>
           </li>
         <% end %>
-        <li>OTROSER</li>
+        <li> <%= link_to "OTROSER", otroser_path %></li>
         <li>ARTICULOS</li>
       </ul>
     </div>
     <div class="contact-infos">
-      <img id="logo-insta" src="https://tse1.mm.bing.net/th?id=OIP.wGOOyZdzF8Ia6mt79UWixAHaHa&pid=Api" alt="logo Instagram">
-      <p>Gustavo <br>5 rua Pitia, <br>75011 Paris <br>gustavo@gmail.com</p>
+      <a href="https://www.instagram.com/otroser______/">
+        <img id="logo-insta" src="https://tse1.mm.bing.net/th?id=OIP.wGOOyZdzF8Ia6mt79UWixAHaHa&pid=Api" alt="logo Instagram">
+      </a>
+      <p><b>Otroser</b> <br>Gustavo Salamie <br>  Vale Do Capão <br> <span style="text-decoration: underline;">Contacto:</span> <br> <a href="mailto:gustavo.salamie@gmail.com">gustavo.salamie@gmail.com</a>
     </div>
   </div>
   <div class="right-box">
-    <img class="home-page-images" src="https://static.wixstatic.com/media/e859b4_4f4c9d6ec72a4d7a815980134d3fd22b~mv2.jpg/v1/fill/w_847,h_683,al_c,q_85,enc_auto/DSC_6446%20copia.jpg" alt="">
+    <img class="home-page-images" src="https://res.cloudinary.com/dz12yq9sa/image/upload/v1681259464/187_tmb3ql.jpg" alt="">
       <% @series.each do |serie| %>
-        <h1> <%= link_to serie.name, serie_path(serie) %> </h1>
+        <h1> <%= link_to serie.name.upcase, serie_path(serie) %> </h1>
               <% if serie.photos.attached? %>
-                <img src="<%= cl_image_path(serie.photos[0].key) + ".jpg"  %>" alt="", class="home-page-images">
+                <a href= <%= serie_path(serie) %> >
+                  <img src="<%= cl_image_path(serie.photos[0].key) + ".jpg"  %>" alt="", class="home-page-images">
+                </a>
               <% else %>
-                <%= image_tag("https://tse2.mm.bing.net/th?id=OIP.uD9MRwwIK3xy2p_TYTYeegHaHa&pid=Api") %>
+                <%= image_tag("https://static.wixstatic.com/media/e859b4_4f4c9d6ec72a4d7a815980134d3fd22b~mv2.jpg/v1/fill/w_847,h_683,al_c,q_85,enc_auto/DSC_6446%20copia.jpg") %>
               <% end %>
         <% end %>
 
   </div>
 </div>
 
+<div class="admin-settings">
   <%= link_to "➕ añadir una nueva serie", new_serie_path %>
-<ul>
-  <% @series.each do |serie| %>
-    <li>
-      <%= link_to serie.name, series_path(serie) %>
-        <% if current_user %>
-        <p><%= link_to("Edit this serie", edit_serie_path(serie)) %></p>
-        <p><%= button_to "❎", serie_path(serie), method: :delete, id:"button" %></p>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+  <ul>
+    <% @series.each do |serie| %>
+      <li>
+        <%= link_to serie.name, series_path(serie) %>
+          <% if current_user %>
+          <p><%= link_to("Edit this serie", edit_serie_path(serie)) %></p>
+          <p><%= button_to "❎", serie_path(serie), method: :delete, id:"button" %></p>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

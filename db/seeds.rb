@@ -5,15 +5,15 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-puts "Cleaning database..."
-Serie.destroy_all
+# puts "Cleaning database..."
+# Serie.destroy_all
 
-puts "Creating series..."
-normal = { name: "Normal", description: "What is normal?" }
-salvajesylibre = { name: "SALVAJES Y LIBRE", description: "grrr" }
+# puts "Creating series..."
+# normal = { name: "Normal", description: "What is normal?" }
+# salvajesylibre = { name: "SALVAJES Y LIBRE", description: "grrr" }
 
-[normal, salvajesylibre].each do |attributes|
-  serie = Serie.create!(attributes)
-  puts "Created #{serie.name}"
-end
-puts "Finished!"
+# [normal, salvajesylibre].each do |attributes|
+#   serie = Serie.create!(attributes)
+#   puts "Created #{serie.name}"
+# end
+# puts "Finished!"
