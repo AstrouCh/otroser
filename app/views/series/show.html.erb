@@ -3,8 +3,9 @@
   <h1> <%= @serie.name.upcase %></h1>
   <h4> <%= @serie.description %> </h4>
 </div>
-  <div class="show-image">
+
+<div class="images-container">
     <% @serie.photos.each do |photo| %>
-      <img src="<%= cl_image_path(photo.key) + ".jpg"  %>" alt="" class="home-page-images">
+      <img src="<%= cl_image_path(photo.key) + ".jpg"  %>" alt="" class="big-images">
     <% end %>
-  </div>
+</div>

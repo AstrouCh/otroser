@@ -1,4 +1,5 @@
 class SeriesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show]
   before_action :set_serie, only: %i[show edit update destroy]
 
   def index
