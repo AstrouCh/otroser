@@ -24,18 +24,14 @@ body {
 }
 
 .big-images {
-  object-fit: cover;
-  max-height: 80vh;
-  max-width: 1000px;
-  margin: 15px;
-}
-
-.vertical {
   height: 80vh;
-}
+  margin: 15px;
 
-.horizontal {
-  width: 1000px;
+  &.horizontal {
+    object-fit: cover;
+    object-position: center;
+    width: 1000px;
+  }
 }
 
 
