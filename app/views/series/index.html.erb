@@ -3,14 +3,19 @@
   <div class="left-box">
     <div class="summary">
       <h1 id="otroser-title"> <%= link_to "Otroser", root_path %></h1>
-      <ul>
-        <% @series.each do |serie| %>
-          <li>
-            <%= link_to serie.name.upcase, serie_path(serie) %>
-          </li>
-        <% end %>
-        <li> <%= link_to "OTROSER", otroser_path %></li>
-      </ul>
+      <nav>
+          <div class="container">
+            <ul>
+              <li class="active">HOME</li>
+              <% @series.each do |serie| %>
+                <li class="<%= serie.name.downcase %>">
+                  <%= link_to serie.name.upcase, serie_path(serie) %>
+                </li>
+              <% end %>
+              <li> <%= link_to "OTROSER", otroser_path %></li>
+            </ul>
+          </div>
+      </nav>
     </div>
     <div class="contact-infos">
       <a href="https://www.instagram.com/otroser______/">
@@ -21,6 +26,7 @@
   </div>
   <div class="right-box images-container">
       <% @series.each do |serie| %>
+        <section id="<%= serie.name.downcase %>">
         <h1> <%= link_to serie.name.upcase, serie_path(serie) %> </h1>
           <% if serie.photos.attached? %>
             <a href= <%= serie_path(serie) %> >
@@ -29,6 +35,7 @@
           <% else %>
             <%= image_tag("https://static.wixstatic.com/media/e859b4_4f4c9d6ec72a4d7a815980134d3fd22b~mv2.jpg/v1/fill/w_847,h_683,al_c,q_85,enc_auto/DSC_6446%20copia.jpg", class: "big-images", data: { controller: "images-size" } )%>
           <% end %>
+          </section>
         <% end %>
   </div>
 </div>

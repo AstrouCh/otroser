@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import DynamicNavbarController from "./dynamic_navbar_controller"
+application.register("dynamic-navbar", DynamicNavbarController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 

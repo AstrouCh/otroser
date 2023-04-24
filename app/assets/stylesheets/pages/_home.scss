@@ -66,3 +66,14 @@
 .admin-settings {
   margin: 3%;
 }
+
+
+nav .container ul li.active {
+  background-color: black;
+  color:white;
+// transition: 0.3s;
+}
+
+nav .container ul li.active a {
+color: red;
+}
