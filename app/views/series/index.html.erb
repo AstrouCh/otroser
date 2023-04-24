@@ -1,0 +1,51 @@
+
+<div class="home-page">
+  <div class="left-box">
+    <div class="summary">
+      <h1 id="otroser-title"> <%= link_to "Otroser", root_path %></h1>
+      <ul>
+        <% @series.each do |serie| %>
+          <li>
+            <%= link_to serie.name.upcase, serie_path(serie) %>
+          </li>
+        <% end %>
+        <li> <%= link_to "OTROSER", otroser_path %></li>
+      </ul>
+    </div>
+    <div class="contact-infos">
+      <a href="https://www.instagram.com/otroser______/">
+        <img id="logo-insta" src="https://tse1.mm.bing.net/th?id=OIP.wGOOyZdzF8Ia6mt79UWixAHaHa&pid=Api" alt="logo Instagram">
+      </a>
+      <p><b>Otroser</b> <br>Gustavo Salamie <br>  Vale Do Capão <br> <span style="text-decoration: underline;">Contacto:</span> <br> <a href="mailto:gustavo.salamie@gmail.com">gustavo.salamie@gmail.com</a>
+    </div>
+  </div>
+  <div class="right-box images-container">
+      <% @series.each do |serie| %>
+        <h1> <%= link_to serie.name.upcase, serie_path(serie) %> </h1>
+          <% if serie.photos.attached? %>
+            <a href= <%= serie_path(serie) %> >
+              <img src="<%= cl_image_path(serie.photos[0].key) + ".jpg"  %>" alt="", class="big-images" data-controller="images-size">
+            </a>
+          <% else %>
+            <%= image_tag("https://static.wixstatic.com/media/e859b4_4f4c9d6ec72a4d7a815980134d3fd22b~mv2.jpg/v1/fill/w_847,h_683,al_c,q_85,enc_auto/DSC_6446%20copia.jpg", class: "big-images", data: { controller: "images-size" } )%>
+          <% end %>
+        <% end %>
+  </div>
+</div>
+
+<% if current_user %>
+  <div class="admin-settings" style="text-align:center">
+    <h1>Configuración de series</h1>
+      <p><%= link_to "➕ Añadir", new_serie_path %></p>
+      <ul>
+        <% @series.each do |serie| %>
+          <li>
+            <p><%= link_to serie.name, series_path(serie) %>:
+              <%= link_to(" 📝 Editar", edit_serie_path(serie)) %> -
+              <%= link_to "❎  Suprimir", serie_path(serie), data: {turbo_method: :delete, turbo_confirm: "¿Está seguro?"} %></p>
+          </li>
+        <% end %>
+      </ul>
+    <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+  </div>
+<% end %>

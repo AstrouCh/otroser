@@ -30,7 +30,7 @@ body {
   &.horizontal {
     object-fit: cover;
     object-position: center;
-    width: 1000px;
+    width: 57vw;
   }
 }
 
@@ -52,4 +52,9 @@ a {
 a:hover {
   color: black;
   font-weight: 900;
+}
+
+ul {
+  list-style-type: none;
+
 }

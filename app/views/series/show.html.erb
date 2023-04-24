@@ -4,8 +4,8 @@
   <h4> <%= @serie.description %> </h4>
 </div>
 
-<div class="images-container" data-controller="images-size">
+<div class="images-container">
     <% @serie.photos.each do |photo| %>
-      <img src="<%= cl_image_path(photo.key) + ".jpg"  %>" class="big-images" data-images-size-target="image">
+      <img src="<%= cl_image_path(photo.key) + ".jpg"  %>" class="big-images" data-controller="images-size">
     <% end %>
 </div>
