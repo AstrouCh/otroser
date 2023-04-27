@@ -6,6 +6,8 @@ export default class extends Controller {
     this.element.onload = () => {
       if (this.element.naturalWidth > this.element.naturalHeight) {
         this.element.classList.add("horizontal")
+      } else {
+        this.element.classList.add("vertical")
       }
     }
   }

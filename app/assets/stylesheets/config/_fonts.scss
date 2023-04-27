@@ -1,9 +1,9 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;400;500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;400;500;700;800&family=Cutive+Mono&family=Karma:wght@300;400;500;700&family=Nixie+One&family=Noto+Sans:wght@100;400;500;700;900&display=swap');
 
 // Define fonts for body and headers
-$body-font: 'Alegreya Sans', sans-serif;
-$headers-font: 'Alegreya Sans', sans-serif;
+$body-font: 'Noto Sans', sans-serif;
+$headers-font: 'Noto Sans', sans-serif;
 
 
 // To use a font file (.woff) uncomment following lines
@@ -15,3 +15,9 @@ $headers-font: 'Alegreya Sans', sans-serif;
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+// font-family: 'Alegreya Sans', sans-serif;
+// font-family: 'Cutive Mono', monospace;
+// font-family: 'Karma', serif;
+// font-family: 'Nixie One', cursive;
+// font-family: 'Noto Sans', sans-serif;

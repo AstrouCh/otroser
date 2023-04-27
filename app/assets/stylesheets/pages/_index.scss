@@ -2,3 +2,50 @@
 @import "home";
 @import "show";
 @import "otroser";
+
+@media only screen and (min-width: 601px) {
+  .left-box {
+    text-align: left;
+    width: 15%;
+    height: 100vh;
+    position: sticky;
+    top: 0px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .summary {
+    flex-grow: 1;
+    font-size: 17px;
+    margin-left: 50%;
+
+    nav .a:hover {
+      background-color: black;
+      color:white;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+  }
+
+  nav .container ul li.active {
+    color: black;
+    font-weight: 900;
+    transition: 0.3s;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .left-box { display: none !important; }
+
+  .right-box {
+    width: 100%;
+  }
+}
+
+.footer {
+  height: 100px;
+  padding: 0px 50px;
+}

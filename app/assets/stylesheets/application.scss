@@ -11,6 +11,17 @@
 @import "components/index";
 @import "pages/index";
 
+#otroser-title {
+  text-align: left;
+  color: black;
+  text-decoration: none;
+  background-color: white;
+  margin-left: 7%;
+  margin-top: 1%;
+  position: sticky;
+  top: 0;
+}
+
 body {
   background-color: white;
 }
@@ -19,25 +30,36 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
 .big-images {
-  height: 80vh;
+  width: auto;
   margin: 15px;
+  object-fit: cover;
+  object-position: center;
 
-  &.horizontal {
-    object-fit: cover;
-    object-position: center;
-    width: 57vw;
+  @media only screen and (min-width: 601px) {
+    &.horizontal {
+      width: 57vw;
+    }
   }
-}
 
+  @media only screen and (max-width: 600px) {
+    &.horizontal {
+      width: 80vw;
+    }
+  }
+
+    &.vertical {
+      height: 80vh;
+    }
+}
 
 h1 {
   margin: 0.5%;
   text-align: center;
+  cursor: default;
 }
 
 p {
@@ -57,4 +79,39 @@ a:hover {
 ul {
   list-style-type: none;
 
+}
+
+@media only screen and (min-width: 601px) {
+
+  .mobile { display: none !important; }
+
+  .contact-infos {
+    margin-left: 25%;
+    margin-bottom: 40%;
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  #logo-insta {
+    width: 3vw;
+    margin-bottom: 5%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .desktop { display: none !important; }
+
+  .contact-infos {
+    margin: 0px;
+    text-align: center;
+    p {
+      font-size: 0.8rem;
+    }
+  }
+
+  #logo-insta {
+    width: 50px;
+    margin-top: 2%;
+  }
 }
