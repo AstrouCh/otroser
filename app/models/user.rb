@@ -3,5 +3,5 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  validates :email, comparison: { equal_to: "gustavo.salamie@gmail.com" }
+  validates :email, inclusion: { in: ["gustavo.salamie@gmail.com", "astridchazaux@hotmail.fr"] }
 end
