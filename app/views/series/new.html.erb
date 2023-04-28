@@ -1,10 +1,12 @@
-<h1>Añadir una nueva serie</h1>
+ <H1 id="otroser-title"> <%= link_to "Otroser", root_path %> </H1>
 
-<%= simple_form_for(@serie) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit %>
-<% end %>
+<div class="forms-container">
+  <h1>Añadir una nueva serie</h1>
 
-<%# <%= link_to "⬅ Volver a la lista de serias", series_path %>
+  <%= simple_form_for(@serie) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.submit %>
+  <% end %>
+</div>
