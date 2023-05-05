@@ -1,0 +1,10 @@
+normal:
+  name: "NORMAL"
+  description: "wahou"
+  created_at: Fri, 28 Apr 2023 09:01:47.898823000 UTC +00:00
+  updated_at: Fri, 28 Apr 2023 09:03:35.678103000 UTC +00:00
+noite:
+  name: "Noite"
+  description: "Rent a vintage car"
+  created_at: Fri, 28 Apr 2023 09:01:47.898823000 UTC +00:00
+  updated_at: Fri, 28 Apr 2023 09:03:35.678103000 UTC +00:00
