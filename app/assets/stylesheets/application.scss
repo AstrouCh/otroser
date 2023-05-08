@@ -81,21 +81,26 @@ ul {
 
 }
 
+.contact-infos {
+  margin: 0px;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+}
+
+#logo-insta {
+  width: 3vw;
+  margin-top: 2%;
+}
+
 @media only screen and (min-width: 601px) {
 
   .mobile { display: none !important; }
 
   .contact-infos {
-    margin-left: 25%;
-    margin-bottom: 40%;
     p {
       font-size: 1rem;
     }
-  }
-
-  #logo-insta {
-    width: 3vw;
-    margin-bottom: 5%;
   }
 }
 
@@ -103,25 +108,15 @@ ul {
   .desktop { display: none !important; }
 
   .contact-infos {
-    margin: 0px;
-    text-align: center;
     p {
       font-size: 0.5rem;
     }
-    bottom: 0;
-    width: 100%;
   }
 
   .home-contact-infos {
     position: absolute;
   }
 
-  #logo-insta {
-    width: 30px;
-    margin-top: 2%;
-  }
-
-  .footer { display: none !important; }
 }
 
 
