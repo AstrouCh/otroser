@@ -28,7 +28,7 @@
   <div class="right-box images-container">
     <% @series.each do |serie| %>
       <section id="<%= serie.name.downcase %>">
-      <h1> <%= link_to serie.name.upcase, serie_path(serie) %> </h1>
+      <h2> <%= link_to serie.name.upcase, serie_path(serie) %> </h2>
         <% if serie.photos.attached? %>
           <a href= <%= serie_path(serie) %> >
             <img src="<%= cl_image_path(serie.photos[0].key) + ".jpg"  %>" alt="", class="big-images" data-controller="images-size">

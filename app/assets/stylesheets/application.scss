@@ -106,17 +106,30 @@ ul {
     margin: 0px;
     text-align: center;
     p {
-      font-size: 0.8rem;
+      font-size: 0.5rem;
     }
+    bottom: 0;
+    width: 100%;
+  }
+
+  .home-contact-infos {
+    position: absolute;
   }
 
   #logo-insta {
-    width: 50px;
+    width: 30px;
     margin-top: 2%;
   }
+
+  .footer { display: none !important; }
 }
 
+
 .forms-container {
-  width: 800px;
+  width: 80vw;
   margin: 0 auto;
+}
+
+.turbo-progress-bar {
+  background: black;
 }
