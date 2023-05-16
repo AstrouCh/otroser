@@ -7,17 +7,11 @@ $(document).ready(function() {
 });
 </script>
 
-<h1 id="otroser-title" class="mobile"> <%= link_to "Otroser", root_path %></h1>
-<div class="mobile-menu">
-  <div class="hamburger"></div>
-  <ul class="menu-items">
-    <% @series.each do |serie| %>
-      <li class="<%= serie.name.downcase %>">
-        <%= link_to serie.name.upcase, serie_path(serie) %>
-      </li>
-    <% end %>
-    <li><%= link_to "OTROSER", otroser_path %></li>
-  </ul>
+<div class="mobile-navbar">
+  <h1 id="otroser-title" class="mobile"> <%= link_to "Otroser", root_path %></h1>
+  <div class="mobile-menu">
+    <div class="hamburger"></div>
+  </div>
 </div>
 
 <div class="home-page" data-controller="dynamic-navbar">
@@ -40,6 +34,14 @@ $(document).ready(function() {
     </div>
   </div>
   <div class="right-box images-container">
+    <ul class="menu-items">
+      <% @series.each do |serie| %>
+        <li class="<%= serie.name.downcase %>">
+          <%= link_to serie.name.upcase, serie_path(serie) %>
+        </li>
+      <% end %>
+      <li><%= link_to "OTROSER", otroser_path %></li>
+    </ul>
     <% @series.each do |serie| %>
       <section id="<%= serie.name.downcase %>">
       <h2> <%= link_to serie.name.upcase, serie_path(serie) %> </h2>
