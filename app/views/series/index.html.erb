@@ -1,22 +1,42 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('.hamburger').click(function() {
+    $('.menu-items').slideToggle();
+  });
+});
+</script>
 
 <h1 id="otroser-title" class="mobile"> <%= link_to "Otroser", root_path %></h1>
+<div class="mobile-menu">
+  <div class="hamburger"></div>
+  <ul class="menu-items">
+    <% @series.each do |serie| %>
+      <li class="<%= serie.name.downcase %>">
+        <%= link_to serie.name.upcase, serie_path(serie) %>
+      </li>
+    <% end %>
+    <li><%= link_to "OTROSER", otroser_path %></li>
+  </ul>
+</div>
+
 <div class="home-page" data-controller="dynamic-navbar">
   <div class="left-box">
     <div class="summary">
-      <h1 id="otroser-title"> <%= link_to "Otroser", root_path %></h1>
-        <nav>
-            <div class="container">
-              <ul>
-                <% @series.each do |serie| %>
-                  <li class="<%= serie.name.downcase %>">
-                    <%= link_to serie.name.upcase, serie_path(serie) %>
-                  </li>
-                <% end %>
-                <p></p>
-                <li> <%= link_to "OTROSER", otroser_path %></li>
-              </ul>
-            </div>
-        </nav>
+      <h1 id="otroser-title"><%= link_to "Otroser", root_path %></h1>
+      <nav>
+        <div class="container">
+          <ul>
+            <% @series.each do |serie| %>
+              <li class="<%= serie.name.downcase %>">
+                <%= link_to serie.name.upcase, serie_path(serie) %>
+              </li>
+            <% end %>
+            <p></p>
+            <li><%= link_to "OTROSER", otroser_path %></li>
+          </ul>
+        </div>
+      </nav>
     </div>
   </div>
   <div class="right-box images-container">
